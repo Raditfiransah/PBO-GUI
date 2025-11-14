@@ -5,19 +5,26 @@ import java.sql.*;
 public class DBHelper {
     private static Connection koneksi;
 
-    public static void bukaKoneksi() {
-        if (koneksi == null) {
-            try {
-                String url = "jdbc:mysql://localhost:3306/dbperpus";
-                String user = "root";
-                String password = "";
-                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-                koneksi = DriverManager.getConnection(url, user, password);
-            } catch (SQLException t) {
-                System.out.println("Error koneksi!");
-            }
+public static void bukaKoneksi() {
+    if (koneksi == null) {
+        try {
+            String url = "jdbc:postgresql://localhost:5432/mydatabase";
+            String user = "admin";
+            String password = "admin123";
+
+            Class.forName("org.postgresql.Driver");
+
+            koneksi = DriverManager.getConnection(url, user, password);
+            System.out.println("Koneksi PostgreSQL berhasil!");
+        } catch (SQLException t) {
+            System.out.println("Error koneksi: " + t.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("Driver PostgreSQL tidak ditemukan!");
         }
     }
+}
+
+
 
     public static int insertQueryGetId(String query) {
         bukaKoneksi();

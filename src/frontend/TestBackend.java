@@ -4,9 +4,9 @@ import backend.*;
 
 public class TestBackend {
     public static void main(String[] args) {
-        kategori kat1 = new kategori("Novel", "Koleksi buku novel");
-        kategori kat2 = new kategori("Referensi", "Buku referensi ilmiah");
-        kategori kat3 = new kategori("Komik", "Komik anak-anak");
+        Kategori kat1 = new Kategori("Novel", "Koleksi buku novel");
+        Kategori kat2 = new Kategori("Referensi", "Buku referensi ilmiah");
+        Kategori kat3 = new Kategori("Komik", "Komik anak-anak");
 
         kat1.save();
         kat2.save();
@@ -17,11 +17,11 @@ public class TestBackend {
 
         kat3.delete();
 
-        for (kategori k : new kategori().getAll()) {
+        for (Kategori k : new Kategori().getAll()) {
             System.out.println("Nama: " + k.getNama() + ", Ket: " + k.getKeterangan());
         }
 
-        for (kategori k : new kategori().search("ilmiah")) {
+        for (Kategori k : new Kategori().search("ilmiah")) {
             System.out.println("Nama: " + k.getNama() + ", Ket: " + k.getKeterangan());
         }
     }
