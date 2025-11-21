@@ -1,6 +1,6 @@
 package frontend;
 
-import backend.Kategori;
+import backend.*;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 

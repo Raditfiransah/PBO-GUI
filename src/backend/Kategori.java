@@ -122,4 +122,12 @@ public class Kategori {
         String SQL = "DELETE FROM kategori WHERE idkategori = '" + this.idkategori + "'";
         DBHelper.executeQuery(SQL);
     }
+
+    // ----------------------------------------------------
+    // TAMBAHKAN KODE INI AGAR COMBOBOX MENAMPILKAN NAMA
+    // ----------------------------------------------------
+    @Override
+    public String toString() {
+        return nama;
+    }
 }
